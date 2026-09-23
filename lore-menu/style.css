@@ -1,6 +1,6 @@
 @font-face {
     font-family: "DeterminationSans";
-    src: url("font/DeterminationSans.woff") format("woff"), url("font/DeterminationSans.ttf") format("truetype");
+    src: url("../font/DeterminationSans.woff") format("woff"), url("../font/DeterminationSans.ttf") format("truetype");
 }
 
 body {
