@@ -74,10 +74,11 @@ div.container{
     margin: 0;
     padding: 0;
     display: block;
-    color: white;
+    color: #57D9FF;
     padding: 8px;
+    padding-bottom: 0px;
     text-decoration: none;
-    border-bottom: 2px solid white;
+    font-size: 16px;
 }
 
 .sidebar a {
@@ -97,4 +98,14 @@ div.container{
 div.content {
     padding: 1px 16px;
     height: auto;
+}
+
+insignificant{
+    font-size: 16px;
+    opacity: 0.5;
+}
+
+highlight{
+    font-size: 16px;
+    color: #57D9FF;
 }
