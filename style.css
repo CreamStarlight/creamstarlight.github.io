@@ -65,8 +65,9 @@ div.container{
     background-color: #3c2e78;
     position: fixed;
     height: 100%;
-    overflow: auto;
-    border-right: 2px solid white;
+    overflow: hidden;
+    white-space: nowrap;
+    border-right: none;
     transition: 0.5s;
     z-index: 1;
     top: 0;
