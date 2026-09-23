@@ -1,0 +1,113 @@
+@font-face {
+    font-family: "DeterminationSans";
+    src: url("font/DeterminationSans.woff") format("woff"), url("font/DeterminationSans.ttf") format("truetype");
+}
+
+body {
+    background-color: #211b3e;
+    color: white;
+    font-family: "DeterminationSans", serif, sans-serif;
+    display: flex;
+
+    margin: 0;
+    padding: 0;
+    font-size: 24px;
+}
+
+a {
+    color: #57D9FF;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #A4EAFF;
+    text-decoration: none;
+}
+
+h1 {
+    font-weight: normal;
+}
+h2 {
+    font-weight: normal;
+}
+
+strong {
+    font-weight: normal;
+    color: yellow;
+}
+
+.topbar{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    background-color: #3c2e78;
+    position: fixed;
+    height: 36px;
+    overflow: auto;
+    border-bottom: 2px solid white;
+}
+
+div.container{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.sidebar {
+    margin: 0;
+    padding: 0;
+    width: 0;
+    display: flex;
+    flex-direction: column;
+    background-color: #3c2e78;
+    position: fixed;
+    height: 100%;
+    overflow: auto;
+    border-right: 2px solid white;
+    transition: 0.5s;
+    z-index: 1;
+    top: 0;
+    left:0;
+}
+
+.sidebar p {
+    margin: 0;
+    padding: 0;
+    display: block;
+    color: #57D9FF;
+    padding: 8px;
+    padding-bottom: 0px;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.sidebar a {
+    display: block;
+    color: white;
+    padding: 8px;
+    text-decoration: none;
+}
+
+.sidebar a:hover {
+    display: block;
+    color: #57D9FF;
+    padding: 8px;
+    text-decoration: none;
+}
+
+div.content {
+    padding: 1px 16px;
+    height: auto;
+}
+
+insignificant{
+    font-size: 16px;
+    opacity: 0.5;
+}
+
+highlight{
+    color: #57D9FF;
+}
