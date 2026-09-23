@@ -3,6 +3,11 @@
     src: url("../font/DeterminationSans.woff") format("woff"), url("../font/DeterminationSans.ttf") format("truetype");
 }
 
+@font-face {
+    font-family: "MarsNeedsCunni";
+    src: url("../font/MNC-CN.woff") format("woff"), url("../font/MNC-CN.ttf") format("truetype");
+}
+
 body {
     background-color: #211b3e;
     color: white;
@@ -33,7 +38,20 @@ h2 {
 
 strong {
     font-weight: normal;
-    color: yellow;
+    color: transparent;
+    background-image: linear-gradient(0deg, #ffff00, #ffff80);
+    -webkit-background-clip: text;
+    background-clip: text;
+    display: inline-block;
+}
+
+warning {
+    font-weight: normal;
+    color: transparent;
+    background-image: linear-gradient(0deg, #ff0000, #ff8080);
+    -webkit-background-clip: text;
+    background-clip: text;
+    display: inline-block;
 }
 
 .topbar{
