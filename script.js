@@ -35,3 +35,18 @@ function checkTime(i){
 	}
 	return i;
 }
+
+function secretpage_darkmode(){
+	var bg = document.body;
+	var cont = document.getElementsByClassName("content")[0];
+	if (document.getElementById('l/d').innerHTML=="☀️"){
+		bg.style.backgroundColor = "#211b3e";
+		cont.style.color="#ffffff";
+		document.getElementById('l/d').innerHTML="🌙";
+	}else{
+		bg.style.backgroundColor = "#ecd8c3";
+		cont.style.color="#000000";
+		document.getElementById('l/d').innerHTML="☀️";
+	}
+	return;
+}

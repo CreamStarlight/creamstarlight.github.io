@@ -8,6 +8,11 @@
     src: url("font/MNC-CN.woff") format("woff"), url("font/MNC-CN.ttf") format("truetype");
 }
 
+@font-face{
+    font-family: "xkcd script";
+    src: url("font/xkcd-script.woff") format("woff"), url("font/xkcd-script.ttf") format("truetype");
+}
+
 body {
     background-color: #211b3e;
     color: white;
@@ -129,4 +134,32 @@ insignificant{
 
 highlight{
     color: #57D9FF;
+}
+
+handscript{
+    font-family: "xkcd script", serif, sans-serif;
+}
+
+img {
+    image-rendering: pixelated;
+}
+
+div.textbox{
+    background-color: black;
+    color: white;
+    border: 6px solid white;
+    padding: 12px 24px;
+    width: 518px;
+    max-width: 518px;
+    height: 116px;
+    max-height: 116px;
+    margin: 0 auto;
+}
+
+sup{
+    font-size: 16px;
+}
+
+sub{
+    font-size: 16px;
 }
