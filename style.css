@@ -40,6 +40,9 @@ h1 {
 h2 {
     font-weight: normal;
 }
+h3 {
+    font-weight: normal;
+}
 
 strong {
     font-weight: normal;
@@ -150,9 +153,8 @@ div.textbox{
     border: 6px solid white;
     padding: 12px 24px;
     width: 518px;
-    max-width: 518px;
-    height: 116px;
-    max-height: 116px;
+    max-width: 100%;
+    min-height: 116px;
     margin: 0 auto;
 }
 
