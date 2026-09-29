@@ -1,3 +1,7 @@
+:root {
+  line-height: 1.2;
+}
+
 @font-face {
     font-family: "DeterminationSans";
     src: url("font/DeterminationSans.woff") format("woff"), url("font/DeterminationSans.ttf") format("truetype");
@@ -36,12 +40,15 @@ a:hover {
 
 h1 {
     font-weight: normal;
+    margin: 5px 0px;
 }
 h2 {
     font-weight: normal;
+    margin: 5px 0px;
 }
 h3 {
     font-weight: normal;
+    margin: 5px 0px;
 }
 
 strong {
@@ -74,6 +81,7 @@ warning {
     height: 36px;
     overflow: auto;
     border-bottom: 2px solid white;
+    z-index: 99;
 }
 
 div.container{
@@ -95,7 +103,7 @@ div.container{
     white-space: nowrap;
     border-right: none;
     transition: 0.5s;
-    z-index: 1;
+    z-index: 100;
     top: 0;
     left:0;
 }
@@ -126,7 +134,7 @@ div.container{
 }
 
 div.content {
-    padding: 1px 16px;
+    padding: 50px 16px;
     height: auto;
 }
 
@@ -145,6 +153,7 @@ handscript{
 
 img {
     image-rendering: pixelated;
+    z-index: 0;
 }
 
 div.textbox{
@@ -156,6 +165,22 @@ div.textbox{
     max-width: 100%;
     min-height: 116px;
     margin: 0 auto;
+}
+
+div.cw{
+    background-color: black;
+    color: white;
+    border: 6px solid red;
+    padding: 12px 24px;
+    width: 518px;
+    max-width: 100%;
+    min-height: 116px;
+    margin: 0 auto;
+}
+
+img.cw{
+    position: relative;
+    bottom: -10px;
 }
 
 sup{
