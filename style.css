@@ -17,6 +17,11 @@
     src: url("font/xkcd-script.woff") format("woff"), url("font/xkcd-script.ttf") format("truetype");
 }
 
+@font-face{
+    font-family: "script CHN";
+    src: url("font/KaiXinJiuXiaoLinYuJiuZou.woff") format("woff"), url("font/KaiXinJiuXiaoLinYuJiuZou.ttf") format("truetype");
+}
+
 body {
     background-color: #211b3e;
     color: white;
@@ -148,7 +153,7 @@ highlight{
 }
 
 handscript{
-    font-family: "xkcd script", serif, sans-serif;
+    font-family: "script CHN";
 }
 
 img {
@@ -165,6 +170,7 @@ div.textbox{
     max-width: 100%;
     min-height: 116px;
     margin: 0 auto;
+    line-height: 1.5;
 }
 
 div.cw{
@@ -189,4 +195,19 @@ sup{
 
 sub{
     font-size: 16px;
+}
+
+f{
+    padding: 0;
+}
+
+hide {
+    padding: 0px 4px 2px 4px;
+    border-radius: 4px;
+
+    background-color: var(--color);
+    transition: color var(--transition), background-color var(--transition);
+}
+hide:hover {
+    color: var(--background-color);
 }

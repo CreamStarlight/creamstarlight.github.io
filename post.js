@@ -4,6 +4,11 @@ const urlParams = new URLSearchParams(window.location.search);
 
 const id = Number(urlParams.get("id"));
 
+var langs={
+    ['en']:'English',
+    ['zh']:'Si. Chinese'
+}
+
 function fetchErrPresent() {
     console.log("Fetch Err");
 }

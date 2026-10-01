@@ -18,7 +18,15 @@ const articlesData = [
     excerpt: "???",
     date: "2026.10.01",
     category: ["C1", "C2"]
+  },
+  {
+    id: 2,
+    title: "Article system: NOW UP!",
+    excerpt: "Major update! We now have easier page adding.",
+    date: "2026.10.01",
+    category: ["Announcement"]
   }
+  
 ];
 
 /**
