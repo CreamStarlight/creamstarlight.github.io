@@ -231,7 +231,7 @@ hide:hover {
     color: var(--background-color);
 }
 
-@media (max-width: 600px){
+@media screen and (max-width: 768px){
     body{
         font-size: 48px;
     }
