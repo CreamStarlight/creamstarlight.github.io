@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Articles - The Starry Stop</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <script src="script.js"></script>
+    <script src="articles.js" defer></script>
+    <script src="post.js" defer></script>
+</head>
+<body>
+    <div id="sidebar" class="sidebar">
+        <a href="javascript:void(0)" class="closebtn" onclick="sbHide()">Go back</a>
+        <p>In-site Navigation</p>
+        <a href="index.html">Home</a>
+        <a href="about.html">About Cream</a>
+        <a href="lore.html">Worlds</a>
+        <p>External Links</p>
+        <a href="https://github.com/CreamStarlight">GitHub</a>
+        <a href="https://forums.terraria.org/index.php?members/268730/">Terraria Forums</a>
+        <a href="https://xkcd.com">xkcd</a>
+    </div>
+
+    <div class="topbar">
+        <span style="cursor: pointer;" onclick="sbShow()">⭐☰</span>
+        <span>The Starry Stop ~ <f id="postTitle"></f></span>
+    </div>
+
+    <div class="content">
+        <h1 id="postTitle">Post title</h1>
+        <p><insignificant>Posted on <f id="postDate">2026.10.01</f> ~ Categories: <f id="postCategories">None</f></insignificant></p>
+
+        <div id="postContent">
+            <p>Test test, 1 2 3.</p>
+        </div>
+    </div>
+</body>
+</html>
