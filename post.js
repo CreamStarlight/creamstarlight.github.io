@@ -41,9 +41,15 @@ async function initPost() {
     
     postTitle.textContent = title;
     postDate.textContent = formatPublishDate(date);
+    var i = 0;
     category.forEach(tag => {
+        if(i==0){
+            i=1;
+        }else{
+            postCategories.append(" / ");
+        }
         postCategories.append(tag);
-        postCategories.append(" ");
+        
     });
     
     // @ts-ignore
