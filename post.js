@@ -42,9 +42,8 @@ async function initPost() {
     postTitle.textContent = title;
     postDate.textContent = formatPublishDate(date);
     category.forEach(tag => {
-        let item = document.createElement('li');
-        item.textContent = tag;
-        postCategories.append(item);
+        postCategories.append(tag);
+        postCategories.append(" ");
     });
     
     // @ts-ignore
