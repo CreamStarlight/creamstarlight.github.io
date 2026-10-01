@@ -268,4 +268,16 @@ hide:hover {
         min-width: 518px;
         max-width: 100%;
     }
+    span{
+        font-size: 48px;
+    }
+    h1{
+        font-size: 72px;
+    }
+    h2{
+        font-size: 64px;
+    }
+    h3{
+        font-size: 56px;
+    }
 }
