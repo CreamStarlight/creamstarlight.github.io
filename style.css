@@ -2,6 +2,7 @@
   line-height: 1.2;
 }
 
+
 @font-face {
     font-family: "DeterminationSans";
     src: url("font/DeterminationSans.woff") format("woff"), url("font/DeterminationSans.ttf") format("truetype");
@@ -21,6 +22,8 @@
     font-family: "script CHN";
     src: url("font/KaiXinJiuXiaoLinYuJiuZou.woff") format("woff"), url("font/KaiXinJiuXiaoLinYuJiuZou.ttf") format("truetype");
 }
+
+
 
 body {
     background-color: #211b3e;
@@ -65,7 +68,7 @@ strong {
     display: inline-block;
 }
 
-warning {
+.warning {
     font-weight: normal;
     color: transparent;
     background-image: linear-gradient(0deg, #ff0000, #ff8080);
@@ -117,7 +120,8 @@ div.container{
     margin: 0;
     padding: 0;
     display: block;
-    color: #57D9FF;
+    color: white;
+    opacity: 0.5;
     padding: 8px;
     padding-bottom: 0px;
     text-decoration: none;
@@ -143,16 +147,21 @@ div.content {
     height: auto;
 }
 
-insignificant{
+.insignificant{
     font-size: 16px;
     opacity: 0.5;
 }
 
-highlight{
+.highlight{
     color: #57D9FF;
 }
 
-handscript{
+small{
+    font-size: 16px;
+    opacity: 0.5;
+}
+
+.handscript{
     font-family: "script CHN";
 }
 
@@ -162,15 +171,26 @@ img {
 }
 
 div.textbox{
+    font-family: "DeterminationSans";
     background-color: black;
     color: white;
     border: 6px solid white;
     padding: 12px 24px;
     width: 518px;
-    max-width: 100%;
     min-height: 116px;
     margin: 0 auto;
     line-height: 1.5;
+}
+
+div.textbox-short{
+    background-color: black;
+    color: white;
+    border: 6px solid white;
+    padding: 12px 24px;
+    width: 518px;
+    margin: 0 auto;
+    line-height: 1.5;
+    text-align: center;
 }
 
 div.cw{
@@ -179,7 +199,6 @@ div.cw{
     border: 6px solid red;
     padding: 12px 24px;
     width: 518px;
-    max-width: 100%;
     min-height: 116px;
     margin: 0 auto;
 }
@@ -210,4 +229,43 @@ hide {
 }
 hide:hover {
     color: var(--background-color);
+}
+
+@media (max-width: 600px){
+    body{
+        font-size: 48px;
+    }
+    .topbar{
+        height: 72px;
+    }
+    .sidebar p{
+        font-size: 32px;
+    }
+    div.textbox{
+        width: auto;
+        min-width: 518px;
+        max-width: 100%;
+    }
+    div.textbox-short{
+        width: auto;
+        min-width: 518px;
+        max-width: 100%;
+    }
+    .insignificant{
+        font-size: 32px;
+    }
+    small{
+        font-size: 32px;
+    }
+    sup{
+        font-size: 32px;
+    }
+    sub{
+        font-size: 32px;
+    }
+    div.cw{
+        width: auto;
+        min-width: 518px;
+        max-width: 100%;
+    }
 }

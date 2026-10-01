@@ -1,7 +1,15 @@
-const sb_width="250px"
+var sb_width="250px"
+
+function widthCompat(){
+	if (window.innerWidth < 600) {
+		return "100%";
+	} else{
+		return sb_width;
+	}
+}
 
 function sbShow() {
-    document.getElementById("sidebar").style.width = sb_width;
+    document.getElementById("sidebar").style.width = widthCompat();
     document.getElementById("sidebar").style.borderRight = "2px solid white";
 }
 
