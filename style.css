@@ -220,6 +220,13 @@ f{
     padding: 0;
 }
 
+img.log{
+    float: right;
+    border: 2px solid #000000;
+    width: 400px;
+    height: auto;
+}
+
 hide {
     padding: 0px 4px 2px 4px;
     border-radius: 4px;
@@ -229,6 +236,12 @@ hide {
 }
 hide:hover {
     color: var(--background-color);
+}
+
+@media screen and (max-width: 768px){
+    img.log{
+        width: 200px;
+    }
 }
 
 /*
