@@ -25,6 +25,13 @@ const articlesData = [
     excerpt: "Major update! We now have easier page adding.",
     date: "2026.10.01",
     category: ["Announcement"]
+  },
+  {
+    id: 3,
+    title: "Phigros: I Reached The Finale and I Want To Cry",
+    excerpt: "...",
+    date: "2026.10.02",
+    category: ["Casual"]
   }
   
 ];
