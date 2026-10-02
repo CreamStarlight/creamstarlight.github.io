@@ -1,7 +1,7 @@
 var sb_width="250px"
 
 function widthCompat(){
-	if (window.innerWidth < 600) {
+	if (window.innerWidth <= 768) {
 		return "100%";
 	} else{
 		return sb_width;
