@@ -60,6 +60,7 @@ async function initPost() {
     // @ts-ignore
     let articleElement = marked.parse(content);
     postContent.innerHTML = articleElement;
+    document.title = postTitle + " - The Starry Stop";
 }
 
 document.addEventListener('DOMContentLoaded', initPost);

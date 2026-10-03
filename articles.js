@@ -62,12 +62,16 @@ function formatPublishDate(dateStr) {
   const diffTime = today - publishDay;
   const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
   
-  if (diffDays >= 0 && diffDays <= 6) {
-    return diffDays === 0 ? "Today" : `${diffDays} days ago`;
-  } else if (diffDays < 0) {
-    return "Somewhere in the future";
+  if (diffDays < 0) {
+    return "Back to the Future, kiddo!"
+  } else if (diffDays === 0){
+    return "Today"
+  } else if (diffDays === 1){
+    return "1 day ago"
+  } else if (diffDays < 10){
+    return diffDays + " days ago"
   } else {
-    return dateStr;
+    return dateStr
   }
 }
 
