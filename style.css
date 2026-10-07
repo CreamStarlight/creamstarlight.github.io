@@ -182,6 +182,18 @@ div.textbox{
     line-height: 1.5;
 }
 
+div.textbox-transp{
+    font-family: "DeterminationSans";
+    background-color: transparent;
+    color: white;
+    border: 6px solid white;
+    padding: 12px 24px;
+    width: min(518px, 90%);
+    min-height: 116px;
+    margin: 0 auto;
+    line-height: 1.5;
+}
+
 div.textbox-short{
     background-color: black;
     color: white;
@@ -218,6 +230,10 @@ sub{
 
 f{
     padding: 0;
+}
+
+.oshadowed{
+    text-shadow: 0px 2px black, 2px 2px black, 2px 0px black, 2px -2px black, 0px -2px black, -2px -2px black, -2px 0px black, -2px 2px black, 4px 4px black, 4px 2px black, 2px 4px black;
 }
 
 img.log{
