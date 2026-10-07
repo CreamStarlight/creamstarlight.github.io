@@ -1,3 +1,3 @@
-*.aseprite
-PHIGROS.jpg
-scug.png
+img/*.aseprite
+img/PHIGROS.jpg
+img/scug.png
