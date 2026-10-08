@@ -28,7 +28,7 @@
 body {
     background-color: #211b3e;
     color: white;
-    font-family: "DeterminationSans", serif, sans-serif;
+    font-family: "DeterminationSans", sans-serif;
     display: flex;
 
     margin: 0;

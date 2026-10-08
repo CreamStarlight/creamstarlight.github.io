@@ -11,14 +11,16 @@ var langs={
 
 function fetchErrPresent() {
     console.log("Fetch Err");
+
 }
 
 function noSuchPostPresent() {
+    window.location.replace("a404.html");
     console.log("No such post");
 }
 
 async function initPost() {
-    if (!id) { window.location.replace("404.html"); return; }
+    if (!id) { window.location.replace("a404.html"); return; }
 
     const articleData = articlesData.find(function (article) { return article.id === id; });
 
@@ -30,13 +32,17 @@ async function initPost() {
         category
     } = articleData;
 
+    
+
     const response = await fetch(`articles/${id}.md`);
 
-    if (!response.ok) { fetchErrPresent(); return; }
+    if (!response.ok) {
+        fetchErrPresent();
+        return;
+    }
 
     const content = (await response.text()).replaceAll('\r\n', '\n').replaceAll('\r', '\n');
 
-    
     const postTitle = document.getElementById("postTitle");
     const postDate = document.getElementById("postDate");
     const postCategories = document.getElementById("postCategories");

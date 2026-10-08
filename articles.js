@@ -114,6 +114,9 @@ function isFavorite(articleId) {
   return getFavorites().includes(articleId);
 }
 
+
+//discarded, only staying as a reference
+
 /**
  * @param {Article} article 
  * @returns {HTMLAnchorElement}
@@ -175,4 +178,25 @@ function createArticleCard(article) {
   card.append(titleBar, excerpt, info);
 
   return card;
+}
+
+async function createArticleTabs(){
+  const slots=document.getElementById("tabslots");
+  if(!slots){return;}
+  articlesData.forEach(article => {
+    const title=article.title;
+    const date=article.date;
+    const categories=article.category;
+    const subtitle=article.excerpt;
+    const url = new URL("post.html", window.location.href);
+    url.searchParams.set('id', String(article.id));
+
+    let tab = document.createElement("a");
+    tab.className = "textbox";
+    tab.href = url.toString();
+
+    tab.innerHTML=title+" - "+date+"\n<small>"+categories.join(" / ")+"</small>\n"+subtitle;
+
+    slots.append(tab);
+  });
 }
