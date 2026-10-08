@@ -15,7 +15,7 @@ const articlesData = [
   {
     id: 1,
     title: "Test",
-    excerpt: "???",
+    excerpt: "This is only a testing page, and has no meaningful content. Please ignore it.",
     date: "2026.10.01",
     category: ["C1", "C2"]
   },
@@ -29,7 +29,7 @@ const articlesData = [
   {
     id: 3,
     title: "Phigros: I Reached The Finale and I Want To Cry",
-    excerpt: "...",
+    excerpt: "Go play Phigros. NOW.",
     date: "2026.10.02",
     category: ["Casual"]
   }
@@ -182,7 +182,9 @@ function createArticleCard(article) {
 
 async function createArticleTabs(){
   const slots=document.getElementById("tabslots");
+  console.log("Detecting...");
   if(!slots){return;}
+  console.log("Tab slot ID found. Trying to create tabs...");
   articlesData.forEach(article => {
     const title=article.title;
     const date=article.date;
@@ -191,12 +193,18 @@ async function createArticleTabs(){
     const url = new URL("post.html", window.location.href);
     url.searchParams.set('id', String(article.id));
 
-    let tab = document.createElement("a");
+    let tab = document.createElement("div");
     tab.className = "textbox";
-    tab.href = url.toString();
 
-    tab.innerHTML=title+" - "+date+"\n<small>"+categories.join(" / ")+"</small>\n"+subtitle;
+    let link = document.createElement("a");
+    link.href = url.toString();
+    link.textContent = "Go to Article >>";
+
+    tab.innerHTML=title+"<br/><small>"+date+" - "+categories.join(" / ")+"</small><br/><small>"+subtitle+"</small><br/>";
+    tab.append(link);
 
     slots.append(tab);
+    slots.append(document.createElement("br"));
   });
+  console.log("Tabs created.");
 }

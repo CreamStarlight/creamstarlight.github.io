@@ -10,7 +10,7 @@
     <script src="script.js"></script>
     <script src="articles.js" defer></script>
 </head>
-<body>
+<body onload="createArticleTabs()">
     <div id="sidebar" class="sidebar">
         <a href="javascript:void(0)" class="closebtn" onclick="sbHide()">&lt;&lt; ⭐☰</a>
         <p>In-site Navigation</p>
@@ -32,6 +32,7 @@
         <h1>Articles</h1>
         <p>These are the things I've written as Markdown articles. Feel free to take a look at 'em!</p>
         <div id="tabslots">
+
         </div>
     </div>
 </body>
