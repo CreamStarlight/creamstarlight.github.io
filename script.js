@@ -34,7 +34,7 @@ function startTime(){
 	m=checkTime(m);
 	s=checkTime(s);
 
-	document.getElementById('dnt').innerHTML=yr+"/"+mo+"/"+da+" "+h+":"+m+":"+s;
+	document.getElementById('time').innerHTML=yr+"/"+mo+"/"+da+" "+h+":"+m+":"+s;
 	t=setTimeout(function(){startTime()},500);
 }
 function checkTime(i){
