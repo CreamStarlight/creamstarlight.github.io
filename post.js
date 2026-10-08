@@ -15,12 +15,12 @@ function fetchErrPresent() {
 }
 
 function noSuchPostPresent() {
-    window.location.replace("a404.html");
+    window.location.replace("404.html");
     console.log("No such post");
 }
 
 async function initPost() {
-    if (!id) { window.location.replace("a404.html"); return; }
+    if (!id) { window.location.replace("articles.html"); return; }
 
     const articleData = articlesData.find(function (article) { return article.id === id; });
 
