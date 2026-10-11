@@ -8,7 +8,8 @@
     <link rel="stylesheet" type="text/css" href="style.css">
     <link rel="icon" href="favicon.ico" type="image/x-icon">
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-    <script src="script.js"></script>
+    <script src="js-lunarCalendar.js"></script>
+    <script src="script.js" defer></script>
 </head>
 <body>
 
@@ -27,9 +28,9 @@
 
     <div class="container">
 
-    <div class="topbar">
+    <div class="topbar" id="topbar">
         <span style="cursor: pointer;" onclick="sbShow()">⭐☰</span>
-        <span>The Starry Stop</span>
+        <span id="pageTitle">The Starry Stop</span>
     </div>
 
     <div class="content">
@@ -43,6 +44,10 @@
 
         <p>I have plans with this site.</p>
         <p>You can go to <a href="post.html?id=2">this post</a> and figure out!</p>
+
+        <div id="calendarBox" class="textbox">
+
+        </div>
     </div>
 
 </div>
