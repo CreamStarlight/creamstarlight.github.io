@@ -103,6 +103,16 @@ const specialDays_lun={
 	}
 }
 
+const normalDays={
+	[0]:"Sun",
+	[1]:"Mon",
+	[2]:"Tue",
+	[3]:"Wed",
+	[4]:"Thu",
+	[5]:"Fri",
+	[6]:"Sat"
+}
+
 function widthCompat(){
 	if (window.innerWidth <= 768) {
 		return "100%";
@@ -116,12 +126,13 @@ function sdShow() {
 	var val=today.getMonth()+1+today.getDate()/100;
 	var spec=false;
 
-	var indexpage=(window.location.pathname === "/index.html" || window.location.pathname === "/");
+	var indexpage=(window.location.pathname.includes("index"));
 	var cal=document.getElementById("calendarBox");
 
 	
-	if(cal){
-		cal.innerHTML+="<div style=\"text-align: center;\">"+today.getFullYear()+"/"+(today.getMonth()+1)+"/"+today.getDate()+"</span><br/>";
+	
+	if(indexpage){
+		console.log("Here be Index Page.");
 	}
 
 	if (specialDays_sol[val]){
@@ -158,6 +169,9 @@ function sdShow() {
 			cal.innerHTML+="Seems like nothing particularly interesting is happening today... Have a good day nonetheless!";
 		}
 		console.log("...Whoops! No lunar calendar for you.");
+		if(cal){
+			cal.innerHTML+="<div style=\"text-align: center;\">"+today.getFullYear()+"/"+(today.getMonth()+1)+"/"+today.getDate()+" ~ "+normalDays[today.getDay()]+"</span><br/>";
+		}
 		return;
 	}
 
@@ -170,6 +184,11 @@ function sdShow() {
 			cal.innerHTML+=specialDays_lun[val].bc+"<br/>";
 		}
 	}
+
+	var leap="";
+	if(lunar.isLeap){leap="l";}
+
+	cal.innerHTML+="<div style=\"text-align: center;\">"+today.getFullYear()+"/"+(today.getMonth()+1)+"/"+today.getDate()+" ~ "+normalDays[today.getDay()]+" ~ L. "+lunar.lMonth+leap+"/"+lunar.lDay+"</span><br/>";
 
 	if(cal && !spec){
 		cal.innerHTML+="Seems like nothing particularly interesting is happening today... Have a good day nonetheless!";
