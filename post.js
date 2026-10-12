@@ -11,7 +11,14 @@ var langs={
 
 function fetchErrPresent() {
     console.log("Fetch Err");
-
+    const postContent = document.getElementById("postContent");
+    if(!postContent){return;}
+    postContent.innerHTML = `
+    <p>!?</p>
+    <p>You have landed in an article that is assigned but does not exist yet.</p>
+    <p>...Or did something go <span class="warning">horribly wrong?</span></p>
+    <p>(A fetch error has happened.)</p>
+    `
 }
 
 function noSuchPostPresent() {
@@ -33,10 +40,12 @@ async function initPost() {
     } = articleData;
 
     
-
-    const response = await fetch(`articles/${id}.md`);
-
-    if (!response.ok) {
+    console.log("Trying to fetch post file...");
+    var response;
+    try{
+        response=await fetch(`articles/${id}.md`);
+    }catch(e){
+        console.log("Error present... "+e)
         fetchErrPresent();
         return;
     }
