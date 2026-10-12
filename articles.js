@@ -13,6 +13,13 @@
  */
 const articlesData = [
   {
+    id: 4,
+    title: "College freshman be like",
+    excerpt: "It's quite easy to manage if you don't have much to do.",
+    date: "2026-10-12",
+    category: ["Casual"]
+  },
+  {
     id: 3,
     title: "Phigros: I Reached The Finale and I Want To Cry",
     excerpt: "Go play Phigros. NOW.",
