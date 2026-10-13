@@ -129,19 +129,26 @@ function sdShow() {
 	var indexpage=(window.location.pathname.includes("index"));
 	var cal=document.getElementById("calendarBox");
 
-	
+	//sanity check
+	var sc=specialDays_sol[10+31/100];
+	if(!sc){
+		console.log("Sanity Check: Oct31 failed. sdShow might not work - automatically cancelled.");
+	}else{
+		console.log("Sanity Check: Response for Oct 31 (Should be Halloween) detected.");
+		console.log(sc.bc);
+	}
+
+	sc=specialDays_sol[9+10/100];
+	if(!sc){
+		console.log("Sanity Check: Sep10 failed. sdShow might not work - automatically cancelled.");
+	}else{
+		console.log("Sanity Check: Response for Sep 10 (Should be Chn. Teacher's Day) detected.");
+		console.log(sc.bc);
+	}
+	//run on dev environ., works well
 	
 	if(indexpage){
 		console.log("Here be Index Page.");
-	}
-
-	if (specialDays_sol[val]){
-		document.getElementById("pageTitle").innerHTML += " ~ "+specialDays_sol[val].day;
-		spec=true;
-		if(cal){
-			cal.innerHTML+="Today is "+specialDays_sol[val].day+"<br/>";
-			cal.innerHTML+=specialDays_sol[val].bc+"<br/>";
-		}
 	}
 
 	if(specialDays_sol[val] && specialDays_sol[val].grayscale){
@@ -150,11 +157,12 @@ function sdShow() {
 			document.getElementsByClassName("content")[0].innerHTML+=`
 				<p>Also, um...</p>
 				<p>Sorry for the grayscale.</p>
-				<p>Today is a big moruning day for some people.</p>
+				<p>Today is a big mourning day for some people.</p>
 			`
 		}else{
 			document.getElementById("topbar").style.filter="grayscale(100%)";
 		}
+		console.log("Blocked lunar calendar from loading.");
 		return; //purposedly highlights the event
 	}
 
@@ -165,30 +173,51 @@ function sdShow() {
 		console.log("Caughtcha-! Error: "+e);
 	}
 	if(!lunar){
-		if(cal && !spec){
-			cal.innerHTML+="Seems like nothing particularly interesting is happening today... Have a good day nonetheless!";
-		}
+		
 		console.log("...Whoops! No lunar calendar for you.");
 		if(cal){
-			cal.innerHTML+="<div style=\"text-align: center;\">"+today.getFullYear()+"/"+(today.getMonth()+1)+"/"+today.getDate()+" ~ "+normalDays[today.getDay()]+"</span><br/>";
+			cal.innerHTML+="<div style=\"text-align: center;\">"+today.getFullYear()+"/"+(today.getMonth()+1)+"/"+today.getDate()+" ~ "+normalDays[today.getDay()]+"</div>";
+		}
+		if (specialDays_sol[val]){
+			document.getElementById("pageTitle").innerHTML += " ~ "+specialDays_sol[val].day;
+			spec=true;
+			if(cal){
+				cal.innerHTML+="Today is "+specialDays_sol[val].day+"<br/>";
+				cal.innerHTML+=specialDays_sol[val].bc+"<br/>";
+			}
+		}else{
+			if(cal){
+				cal.innerHTML+="Seems like nothing particularly interesting is happening today... Have a good day nonetheless!";
+			}
 		}
 		return;
 	}
 
 	var lval=lunar.lMonth+lunar.lDay/100;
-	if (specialDays_lun[lval]){
-		document.getElementById("pageTitle").innerHTML += " ~ "+specialDays_lun[lval].day;
-		spec=true;
-		if(cal){
-			cal.innerHTML+="Today is "+specialDays_lun[val].day+"<br/>";
-			cal.innerHTML+=specialDays_lun[val].bc+"<br/>";
-		}
-	}
 
 	var leap="";
 	if(lunar.isLeap){leap="l";}
 
-	cal.innerHTML+="<div style=\"text-align: center;\">"+today.getFullYear()+"/"+(today.getMonth()+1)+"/"+today.getDate()+" ~ "+normalDays[today.getDay()]+" ~ L. "+lunar.lMonth+leap+"/"+lunar.lDay+"</span><br/>";
+	if(cal){
+		cal.innerHTML+="<div style=\"text-align: center;\">"+today.getFullYear()+"/"+(today.getMonth()+1)+"/"+today.getDate()+" ~ "+normalDays[today.getDay()]+" ~ L. "+lunar.lMonth+leap+"/"+lunar.lDay+"</div>";
+	}
+
+	if (specialDays_sol[val]){
+		document.getElementById("pageTitle").innerHTML += " ~ "+specialDays_sol[val].day;
+		spec=true;
+		if(cal){
+			cal.innerHTML+="Today is "+specialDays_sol[val].day+"<br/>";
+			cal.innerHTML+=specialDays_sol[val].bc+"<br/>";
+		}
+	}
+	if (specialDays_lun[lval] && !lunar.isLeap){
+		document.getElementById("pageTitle").innerHTML += " ~ "+specialDays_lun[lval].day;
+		spec=true;
+		if(cal){
+			cal.innerHTML+="Today is "+specialDays_lun[lval].day+".<br/>";
+			cal.innerHTML+=specialDays_lun[lval].bc+"<br/>";
+		}
+	}
 
 	if(cal && !spec){
 		cal.innerHTML+="Seems like nothing particularly interesting is happening today... Have a good day nonetheless!";
@@ -207,6 +236,13 @@ function sbHide() {
 
 //This function might not have many uses as of now.
 function startTime(){
+
+	const tmr=document.getElementById("time");
+	if(!tmr){
+		console.log("Time module not found...");
+		return;
+	}
+
 	var today=new Date();
 
     var yr=today.getFullYear();
@@ -221,7 +257,7 @@ function startTime(){
 	m=checkTime(m);
 	s=checkTime(s);
 
-	document.getElementById('time').innerHTML=yr+"/"+mo+"/"+da+" "+h+":"+m+":"+s;
+	tmr.textContent=yr+"/"+mo+"/"+da+" "+h+":"+m+":"+s;
 	t=setTimeout(function(){startTime()},500);
 }
 function checkTime(i){
@@ -246,4 +282,5 @@ function secretpage_darkmode(){
 	return;
 }
 
-sdShow();
+document.addEventListener('DOMContentLoaded', sdShow);
+document.addEventListener('DOMContentLoaded', startTime);
