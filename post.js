@@ -1,5 +1,7 @@
 // @ts-check
 
+//copy-pasted from Wuwei C.'s chenwuwei404.github.io w/ quite a few modification
+
 const urlParams = new URLSearchParams(window.location.search);
 
 const id = Number(urlParams.get("id"));
@@ -46,6 +48,10 @@ async function initPost() {
         response=await fetch(`articles/${id}.md`);
     }catch(e){
         console.log("Error present... "+e)
+        fetchErrPresent();
+        return;
+    }
+    if(!response.ok){
         fetchErrPresent();
         return;
     }

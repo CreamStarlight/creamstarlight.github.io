@@ -1,10 +1,14 @@
 // @ts-check
+
+//copy-pasted from Wuwei C.'s chenwuwei404.github.io w/ huge modification
+
 /**
  * @typedef {Object} Article
  * @property {Number} id
  * @property {String} title
  * @property {String} excerpt
  * @property {String} date
+ * @property {Boolean} hidden
  * @property {Array<String>} category
  */
 
@@ -16,29 +20,33 @@ const articlesData = [
     id: 4,
     title: "College freshman be like",
     excerpt: "It's quite easy to manage if you don't have much to do.",
-    date: "2026-10-12",
-    category: ["Casual"]
+    date: "2026.10.12",
+    category: ["Casual"],
+    hidden: false
   },
   {
     id: 3,
     title: "Phigros: I Reached The Finale and I Want To Cry",
     excerpt: "Go play Phigros. NOW.",
     date: "2026.10.02",
-    category: ["Casual"]
+    category: ["Casual"],
+    hidden: false
   },
   {
     id: 2,
     title: "Article system: NOW UP!",
     excerpt: "Major update! We now have easier page adding.",
     date: "2026.10.01",
-    category: ["Announcement"]
+    category: ["Announcement"],
+    hidden: false
   },
   {
     id: 1,
     title: "Test",
     excerpt: "This is only a testing page, and has no meaningful content. Please ignore it.",
     date: "2026.10.01",
-    category: ["C1", "C2"]
+    category: ["C1", "C2"],
+    hidden: false
   }
 ];
 
@@ -87,6 +95,8 @@ async function createArticleTabs(){
   if(!slots){return;}
   console.log("Tab slot ID found. Trying to create tabs...");
   articlesData.forEach(article => {
+    if(article.hidden){return;} //does not make the article inaccessible thru id directing though
+
     const title=article.title;
     const date=article.date;
     const categories=article.category;
