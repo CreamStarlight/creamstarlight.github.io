@@ -113,6 +113,33 @@ const normalDays={
 	[6]:"Sat"
 }
 
+//---//---//---//---//
+
+function __introduction__(){
+	/*
+	console.log("%cWelcome to the Starry Stop!","color: #57D9FF");
+	console.log("I'm glad you actually bumped in to check how this site is doing, how'd I construct this site etc.");
+	console.log("It's... kind of a surprise seeing you not doing this on its GitHub page though. Maybe you're simply messing around with the F12 developer tool stuff?");
+	console.log("I wouldn't know. ¯\\_ (ツ)_/¯");
+	console.log("Anyway, hello! Have a look around. :)");
+	console.log(" - %cCream Starlight","color: #FFFF66");
+	*/
+
+	console.log(`%cWelcome to the Starry Stop!%c
+
+I'm glad you actually bumped in to check how this site is doing, how'd I construct this site etc.
+It's... kind of a surprise seeing you not doing this on its GitHub page though. Maybe you're simply messing around with the F12 developer tool stuff?
+I wouldn't know. ¯\\_ (ツ)_/¯
+Anyway, hello! Have a look around. :)
+
+ - %cCream Starlight`,"color: #57D9FF","","color: #FFFF66");
+	
+	//lol
+	return;
+}
+
+//---//---//---//---//
+
 function widthCompat(){
 	if (window.innerWidth <= 768) {
 		return "100%";
@@ -162,7 +189,7 @@ function sdShow() {
 		}else{
 			document.getElementById("topbar").style.filter="grayscale(100%)";
 		}
-		console.log("Blocked lunar calendar from loading.");
+		console.log("%cToday is "+specialDays_sol[val].day+". Lunar calendar is automatically disabled as this is of more importance.","color: #ff6666, background-color: #660000");
 		return; //purposedly highlights the event
 	}
 
@@ -282,5 +309,10 @@ function secretpage_darkmode(){
 	return;
 }
 
+//---//---//---//---//
+
 document.addEventListener('DOMContentLoaded', sdShow);
 document.addEventListener('DOMContentLoaded', startTime);
+
+__introduction__();
+
