@@ -13,6 +13,10 @@ const specialDays_sol={
 		day: "International Women's Day",
 		bc: "It's International Women's Day. Please don't exert yourselves too much, fellow girls."
 	},
+	[4]:{
+		day: "April Fools",
+		bc: "Happy April Fools! Don't play those jokes on me though, I'm not exactly a great person in sensing jokes."
+	},
 	[4.10]:{
 		day: "Cream's birthday",
 		bc: "If you happen to see this message, it must be that my birthday has come. Sooo... You got anything you wanna say to me? :P"
@@ -267,7 +271,7 @@ function startTime(){
 	const tmr=document.getElementById("time");
 	if(!tmr){
 		console.log("Time module not found...");
-		return;
+		return 1;
 	}
 
 	var today=new Date();
@@ -285,7 +289,7 @@ function startTime(){
 	s=checkTime(s);
 
 	tmr.textContent=yr+"/"+mo+"/"+da+" "+h+":"+m+":"+s;
-	t=setTimeout(function(){startTime()},500);
+	return 0;
 }
 function checkTime(i){
 	if (i<10){
@@ -312,7 +316,7 @@ function secretpage_darkmode(){
 //---//---//---//---//
 
 document.addEventListener('DOMContentLoaded', sdShow);
-document.addEventListener('DOMContentLoaded', startTime);
+setInterval(startTime, 500);
 
 __introduction__();
 

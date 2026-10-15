@@ -11,7 +11,7 @@
 @font-face {
     font-family: "MarsNeedsCunni";
     src: url("font/MNC-CN.woff") format("woff"), url("font/MNC-CN.ttf") format("truetype");
-} /* Mars Needs Cunnilingus ~ 英文小字体 ~ 哪个神人起的字体名 ~ credits to: Toby Fox @ Undertale */
+} /* Mars Needs Cunnilingus ~ 中英小字体 ~ 哪个神人起的字体名 ~ credits to: Toby Fox @ Undertale & 懒人汉化组 */
 
 @font-face{
     font-family: "xkcd script";
@@ -48,15 +48,12 @@ a:hover {
 
 h1 {
     font-weight: normal;
-    margin: 5px 0px;
 }
 h2 {
     font-weight: normal;
-    margin: 5px 0px;
 }
 h3 {
     font-weight: normal;
-    margin: 5px 0px;
 }
 
 strong {
