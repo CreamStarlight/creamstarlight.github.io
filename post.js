@@ -37,6 +37,7 @@ async function initPost() {
 
     const {
         title,
+        excerpt,
         date,
         category
     } = articleData;
@@ -82,6 +83,8 @@ async function initPost() {
     let articleElement = marked.parse(content);
     postContent.innerHTML = articleElement;
     document.title = title + " - The Starry Stop";
+    var metaDescription = document.querySelector("meta[name='description']");
+    metaDescription?.setAttribute('content',excerpt);
 }
 
 document.addEventListener('DOMContentLoaded', initPost);
