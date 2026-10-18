@@ -1,22 +1,44 @@
+:root {
+  line-height: 1.2;
+}
+
+
 @font-face {
     font-family: "DeterminationSans";
-    src: url("../font/DeterminationSans.woff") format("woff"), url("../font/DeterminationSans.ttf") format("truetype");
-}
+    src: url("font/DeterminationSans.woff") format("woff"), url("font/DeterminationSans.ttf") format("truetype");
+} /* Determination Sans x SimSun ~ 中英正常字体 ~ credits to: Toby Fox @ Undertale & 好人汉化组 */
 
 @font-face {
     font-family: "MarsNeedsCunni";
-    src: url("../font/MNC-CN.woff") format("woff"), url("../font/MNC-CN.ttf") format("truetype");
-}
+    src: url("font/MNC-CN.woff") format("woff"), url("font/MNC-CN.ttf") format("truetype");
+} /* Mars Needs Cunnilingus ~ 中英小字体 ~ 哪个神人起的字体名 ~ credits to: Toby Fox @ Undertale & 懒人汉化组 */
+
+@font-face{
+    font-family: "xkcd script";
+    src: url("font/xkcd-script.woff") format("woff"), url("font/xkcd-script.ttf") format("truetype");
+} /* xkcd Script ~ 英文手写体（暂时废弃） ~ credits to: IPython & 兰道尔·门罗 @ xkcd */
+
+@font-face{
+    font-family: "script CHN";
+    src: url("font/KaiXinJiuXiaoLinYuJiuZou.woff") format("woff"), url("font/KaiXinJiuXiaoLinYuJiuZou.ttf") format("truetype");
+} /* 开心就笑淋雨就走 ~ 中文手写体 */
+
+
 
 body {
     background-color: #211b3e;
     color: white;
-    font-family: "DeterminationSans", serif, sans-serif;
+    font-family: "DeterminationSans", sans-serif;
     display: flex;
 
     margin: 0;
     padding: 0;
     font-size: 24px;
+}
+
+.content{
+    overflow-wrap: break-word;
+    max-width: 97%;
 }
 
 a {
@@ -35,6 +57,9 @@ h1 {
 h2 {
     font-weight: normal;
 }
+h3 {
+    font-weight: normal;
+}
 
 strong {
     font-weight: normal;
@@ -45,7 +70,7 @@ strong {
     display: inline-block;
 }
 
-warning {
+.warning {
     font-weight: normal;
     color: transparent;
     background-image: linear-gradient(0deg, #ff0000, #ff8080);
@@ -66,6 +91,7 @@ warning {
     height: 36px;
     overflow: auto;
     border-bottom: 2px solid white;
+    z-index: 99;
 }
 
 div.container{
@@ -87,7 +113,7 @@ div.container{
     white-space: nowrap;
     border-right: none;
     transition: 0.5s;
-    z-index: 1;
+    z-index: 100;
     top: 0;
     left:0;
 }
@@ -96,7 +122,8 @@ div.container{
     margin: 0;
     padding: 0;
     display: block;
-    color: #57D9FF;
+    color: white;
+    opacity: 0.5;
     padding: 8px;
     padding-bottom: 0px;
     text-decoration: none;
@@ -118,15 +145,174 @@ div.container{
 }
 
 div.content {
-    padding: 1px 16px;
+    padding: 50px 16px;
     height: auto;
 }
 
-insignificant{
+.insignificant{
     font-size: 16px;
     opacity: 0.5;
 }
 
-highlight{
+.highlight{
     color: #57D9FF;
 }
+
+small{
+    font-size: 16px;
+    opacity: 0.5;
+}
+
+.handscript{
+    font-family: "script CHN";
+}
+
+img {
+    image-rendering: pixelated;
+    z-index: 0;
+}
+
+div.textbox{
+    font-family: "DeterminationSans";
+    background-color: black;
+    color: white;
+    border: 6px solid white;
+    padding: 12px 24px;
+    width: min(518px, 90%);
+    min-height: 116px;
+    margin: 0 auto;
+    line-height: 1.5;
+}
+
+div.textbox-transp{
+    font-family: "DeterminationSans";
+    background-color: transparent;
+    color: white;
+    border: 6px solid white;
+    padding: 12px 24px;
+    width: min(518px, 90%);
+    min-height: 116px;
+    margin: 0 auto;
+    line-height: 1.5;
+}
+
+div.textbox-short{
+    background-color: black;
+    color: white;
+    border: 6px solid white;
+    padding: 12px 24px;
+    width: min(518px, 90%);
+    margin: 0 auto;
+    line-height: 1.5;
+    text-align: center;
+}
+
+div.cw{
+    background-color: black;
+    color: white;
+    border: 6px solid red;
+    padding: 12px 24px;
+    width: min(518px, 90%);
+    min-height: 116px;
+    margin: 0 auto;
+}
+
+img.cw{
+    position: relative;
+    bottom: -10px;
+}
+
+sup{
+    font-size: 16px;
+}
+
+sub{
+    font-size: 16px;
+}
+
+f{
+    padding: 0;
+}
+
+.oshadowed{
+    text-shadow: 0px 1.5px black, 1.5px 1.5px black, 1.5px 0px black, 1.5px -1.5px black, 0px -1.5px black, -1.5px -1.5px black, -1.5px 0px black, -1.5px 1.5px black, 3px 3px black, 3px 1.5px black, 1.5px 3px black;
+}
+
+img.log{
+    float: right;
+    border: 2px solid #000000;
+    width: 400px;
+    height: auto;
+}
+
+hide {
+    padding: 0px 4px 2px 4px;
+    border-radius: 4px;
+
+    background-color: var(--color);
+    transition: color var(--transition), background-color var(--transition);
+} /* Unused */
+hide:hover {
+    color: var(--background-color);
+} /* Unused */
+
+@media screen and (max-width: 768px){
+    img.log{
+        width: 200px;
+    }
+} /* Autoshrink */
+
+/*
+@media screen and (max-width: 768px){
+    body{
+        font-size: 48px;
+    }
+    .topbar{
+        height: 72px;
+    }
+    .sidebar p{
+        font-size: 32px;
+    }
+    div.textbox{
+        width: auto;
+        min-width: 518px;
+        max-width: 100%;
+    }
+    div.textbox-short{
+        width: auto;
+        min-width: 518px;
+        max-width: 100%;
+    }
+    .insignificant{
+        font-size: 32px;
+    }
+    small{
+        font-size: 32px;
+    }
+    sup{
+        font-size: 32px;
+    }
+    sub{
+        font-size: 32px;
+    }
+    div.cw{
+        width: auto;
+        min-width: 518px;
+        max-width: 100%;
+    }
+    span{
+        font-size: 48px;
+    }
+    h1{
+        font-size: 72px;
+    }
+    h2{
+        font-size: 64px;
+    }
+    h3{
+        font-size: 56px;
+    }
+}
+
+Who needs this when we have viewport?!
+*/

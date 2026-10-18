@@ -13,6 +13,10 @@ const specialDays_sol={
 		day: "International Women's Day",
 		bc: "It's International Women's Day. Please don't exert yourselves too much, fellow girls."
 	},
+	[4]:{
+		day: "April Fools",
+		bc: "Happy April Fools! Don't play those jokes on me though, I'm not exactly a great person in sensing jokes."
+	},
 	[4.10]:{
 		day: "Cream's birthday",
 		bc: "If you happen to see this message, it must be that my birthday has come. Sooo... You got anything you wanna say to me? :P"
@@ -103,6 +107,43 @@ const specialDays_lun={
 	}
 }
 
+const normalDays={
+	[0]:"Sun",
+	[1]:"Mon",
+	[2]:"Tue",
+	[3]:"Wed",
+	[4]:"Thu",
+	[5]:"Fri",
+	[6]:"Sat"
+}
+
+//---//---//---//---//
+
+function __introduction__(){
+	/*
+	console.log("%cWelcome to the Starry Stop!","color: #57D9FF");
+	console.log("I'm glad you actually bumped in to check how this site is doing, how'd I construct this site etc.");
+	console.log("It's... kind of a surprise seeing you not doing this on its GitHub page though. Maybe you're simply messing around with the F12 developer tool stuff?");
+	console.log("I wouldn't know. ¯\\_ (ツ)_/¯");
+	console.log("Anyway, hello! Have a look around. :)");
+	console.log(" - %cCream Starlight","color: #FFFF66");
+	*/
+
+	console.log(`%cWelcome to the Starry Stop!%c
+
+I'm glad you actually bumped in to check how this site is doing, how'd I construct this site etc.
+It's... kind of a surprise seeing you not doing this on its GitHub page though. Maybe you're simply messing around with the F12 developer tool stuff?
+I wouldn't know. ¯\\_ (ツ)_/¯
+Anyway, hello! Have a look around. :)
+
+ - %cCream Starlight`,"color: #57D9FF","","color: #FFFF66");
+	
+	//lol
+	return;
+}
+
+//---//---//---//---//
+
 function widthCompat(){
 	if (window.innerWidth <= 768) {
 		return "100%";
@@ -116,21 +157,29 @@ function sdShow() {
 	var val=today.getMonth()+1+today.getDate()/100;
 	var spec=false;
 
-	var indexpage=(window.location.pathname === "/index.html" || window.location.pathname === "/");
+	var indexpage=(window.location.pathname.includes("index"));
 	var cal=document.getElementById("calendarBox");
 
-	
-	if(cal){
-		cal.innerHTML+="<div style=\"text-align: center;\">"+today.getFullYear()+"/"+(today.getMonth()+1)+"/"+today.getDate()+"</span><br/>";
+	//sanity check
+	var sc=specialDays_sol[10+31/100];
+	if(!sc){
+		console.log("Sanity Check: Oct31 failed. sdShow might not work - automatically cancelled.");
+	}else{
+		console.log("Sanity Check: Response for Oct 31 (Should be Halloween) detected.");
+		console.log(sc.bc);
 	}
 
-	if (specialDays_sol[val]){
-		document.getElementById("pageTitle").innerHTML += " ~ "+specialDays_sol[val].day;
-		spec=true;
-		if(cal){
-			cal.innerHTML+="Today is "+specialDays_sol[val].day+"<br/>";
-			cal.innerHTML+=specialDays_sol[val].bc+"<br/>";
-		}
+	sc=specialDays_sol[9+10/100];
+	if(!sc){
+		console.log("Sanity Check: Sep10 failed. sdShow might not work - automatically cancelled.");
+	}else{
+		console.log("Sanity Check: Response for Sep 10 (Should be Chn. Teacher's Day) detected.");
+		console.log(sc.bc);
+	}
+	//run on dev environ., works well
+	
+	if(indexpage){
+		console.log("Here be Index Page.");
 	}
 
 	if(specialDays_sol[val] && specialDays_sol[val].grayscale){
@@ -139,11 +188,12 @@ function sdShow() {
 			document.getElementsByClassName("content")[0].innerHTML+=`
 				<p>Also, um...</p>
 				<p>Sorry for the grayscale.</p>
-				<p>Today is a big moruning day for some people.</p>
+				<p>Today is a big mourning day for some people.</p>
 			`
 		}else{
 			document.getElementById("topbar").style.filter="grayscale(100%)";
 		}
+		console.log("%cToday is "+specialDays_sol[val].day+". Lunar calendar is automatically disabled as this is of more importance.","color: #ff6666, background-color: #660000");
 		return; //purposedly highlights the event
 	}
 
@@ -154,20 +204,49 @@ function sdShow() {
 		console.log("Caughtcha-! Error: "+e);
 	}
 	if(!lunar){
-		if(cal && !spec){
-			cal.innerHTML+="Seems like nothing particularly interesting is happening today... Have a good day nonetheless!";
-		}
+		
 		console.log("...Whoops! No lunar calendar for you.");
+		if(cal){
+			cal.innerHTML+="<div style=\"text-align: center;\">"+today.getFullYear()+"/"+(today.getMonth()+1)+"/"+today.getDate()+" ~ "+normalDays[today.getDay()]+"</div>";
+		}
+		if (specialDays_sol[val]){
+			document.getElementById("pageTitle").innerHTML += " ~ "+specialDays_sol[val].day;
+			spec=true;
+			if(cal){
+				cal.innerHTML+="Today is "+specialDays_sol[val].day+"<br/>";
+				cal.innerHTML+=specialDays_sol[val].bc+"<br/>";
+			}
+		}else{
+			if(cal){
+				cal.innerHTML+="Seems like nothing particularly interesting is happening today... Have a good day nonetheless!";
+			}
+		}
 		return;
 	}
 
 	var lval=lunar.lMonth+lunar.lDay/100;
-	if (specialDays_lun[lval]){
+
+	var leap="";
+	if(lunar.isLeap){leap="l";}
+
+	if(cal){
+		cal.innerHTML+="<div style=\"text-align: center;\">"+today.getFullYear()+"/"+(today.getMonth()+1)+"/"+today.getDate()+" ~ "+normalDays[today.getDay()]+" ~ L. "+lunar.lMonth+leap+"/"+lunar.lDay+"</div>";
+	}
+
+	if (specialDays_sol[val]){
+		document.getElementById("pageTitle").innerHTML += " ~ "+specialDays_sol[val].day;
+		spec=true;
+		if(cal){
+			cal.innerHTML+="Today is "+specialDays_sol[val].day+"<br/>";
+			cal.innerHTML+=specialDays_sol[val].bc+"<br/>";
+		}
+	}
+	if (specialDays_lun[lval] && !lunar.isLeap){
 		document.getElementById("pageTitle").innerHTML += " ~ "+specialDays_lun[lval].day;
 		spec=true;
 		if(cal){
-			cal.innerHTML+="Today is "+specialDays_lun[val].day+"<br/>";
-			cal.innerHTML+=specialDays_lun[val].bc+"<br/>";
+			cal.innerHTML+="Today is "+specialDays_lun[lval].day+".<br/>";
+			cal.innerHTML+=specialDays_lun[lval].bc+"<br/>";
 		}
 	}
 
@@ -188,6 +267,13 @@ function sbHide() {
 
 //This function might not have many uses as of now.
 function startTime(){
+
+	const tmr=document.getElementById("time");
+	if(!tmr){
+		console.log("Time module not found...");
+		return 1;
+	}
+
 	var today=new Date();
 
     var yr=today.getFullYear();
@@ -202,8 +288,8 @@ function startTime(){
 	m=checkTime(m);
 	s=checkTime(s);
 
-	document.getElementById('time').innerHTML=yr+"/"+mo+"/"+da+" "+h+":"+m+":"+s;
-	t=setTimeout(function(){startTime()},500);
+	tmr.textContent=yr+"/"+mo+"/"+da+" "+h+":"+m+":"+s;
+	return 0;
 }
 function checkTime(i){
 	if (i<10){
@@ -227,4 +313,12 @@ function secretpage_darkmode(){
 	return;
 }
 
-sdShow();
+//---//---//---//---//
+
+document.addEventListener('DOMContentLoaded', sdShow);
+if(startTime()==0){
+	setInterval(startTime, 500);
+}
+
+__introduction__();
+
