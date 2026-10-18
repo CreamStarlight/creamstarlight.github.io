@@ -36,6 +36,11 @@ body {
     font-size: 24px;
 }
 
+.content{
+    overflow-wrap: break-word;
+    max-width: 97%;
+}
+
 a {
     color: #57D9FF;
     text-decoration: none;
