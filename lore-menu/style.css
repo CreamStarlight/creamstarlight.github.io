@@ -38,7 +38,7 @@ body {
 
 .content{
     overflow-wrap: break-word;
-    max-width: 97%;
+    width: calc(100% - 32px);
 }
 
 a {
