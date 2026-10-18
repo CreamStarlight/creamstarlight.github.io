@@ -5,22 +5,22 @@
 
 @font-face {
     font-family: "DeterminationSans";
-    src: url("font/DeterminationSans.woff") format("woff"), url("font/DeterminationSans.ttf") format("truetype");
+    src: url("../font/DeterminationSans.woff") format("woff"), url("../font/DeterminationSans.ttf") format("truetype");
 } /* Determination Sans x SimSun ~ 中英正常字体 ~ credits to: Toby Fox @ Undertale & 好人汉化组 */
 
 @font-face {
     font-family: "MarsNeedsCunni";
-    src: url("font/MNC-CN.woff") format("woff"), url("font/MNC-CN.ttf") format("truetype");
+    src: url("../font/MNC-CN.woff") format("woff"), url("../font/MNC-CN.ttf") format("truetype");
 } /* Mars Needs Cunnilingus ~ 中英小字体 ~ 哪个神人起的字体名 ~ credits to: Toby Fox @ Undertale & 懒人汉化组 */
 
 @font-face{
     font-family: "xkcd script";
-    src: url("font/xkcd-script.woff") format("woff"), url("font/xkcd-script.ttf") format("truetype");
+    src: url("../font/xkcd-script.woff") format("woff"), url("../font/xkcd-script.ttf") format("truetype");
 } /* xkcd Script ~ 英文手写体（暂时废弃） ~ credits to: IPython & 兰道尔·门罗 @ xkcd */
 
 @font-face{
     font-family: "script CHN";
-    src: url("font/KaiXinJiuXiaoLinYuJiuZou.woff") format("woff"), url("font/KaiXinJiuXiaoLinYuJiuZou.ttf") format("truetype");
+    src: url("../font/KaiXinJiuXiaoLinYuJiuZou.woff") format("woff"), url("../font/KaiXinJiuXiaoLinYuJiuZou.ttf") format("truetype");
 } /* 开心就笑淋雨就走 ~ 中文手写体 */
 
 
