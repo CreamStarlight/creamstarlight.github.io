@@ -316,7 +316,9 @@ function secretpage_darkmode(){
 //---//---//---//---//
 
 document.addEventListener('DOMContentLoaded', sdShow);
-setInterval(startTime, 500);
+if(startTime()==0){
+	setInterval(startTime, 500);
+}
 
 __introduction__();
 

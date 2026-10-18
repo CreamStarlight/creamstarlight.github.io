@@ -17,6 +17,14 @@
  */
 const articlesData = [
   {
+    id: 5,
+    title: "desultory signals",
+    excerpt: "",
+    date: "2026.10.18",
+    category: ["???"],
+    hidden: false
+  },
+  {
     id: 4,
     title: "College freshman be like",
     excerpt: "It's quite easy to manage if you don't have much to do.",
@@ -111,7 +119,11 @@ async function createArticleTabs(){
     link.href = url.toString();
     link.textContent = "Go to Article >>";
 
-    tab.innerHTML=title+"<br/><small>"+date+" - "+categories.join(" / ")+"</small><br/><small>"+subtitle+"</small><br/>";
+    if (title=="desultory signals"){
+      tab.innerHTML="<span id='DESULTORYSIGNALS'>"+title+"</span><br/><small>"+date+" - "+categories.join(" / ")+"</small><br/><small>"+subtitle+"</small><br/>";
+    }else{
+      tab.innerHTML="<span>"+title+"</span><br/><small>"+date+" - "+categories.join(" / ")+"</small><br/><small>"+subtitle+"</small><br/>";
+    }
     tab.append(link);
 
     slots.append(tab);
