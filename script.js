@@ -117,6 +117,86 @@ const normalDays={
 	[6]:"Sat"
 }
 
+let sidebarTable=[
+	{
+		type: "p",
+		content: "In-site Navigation"
+	},
+	{
+		type: "a",
+		url: "index.html",
+		content: "Home"
+	},
+	{
+		type: "a",
+		url: "about.html",
+		content: "About Cream",
+	},
+	{
+		type:"a",
+		url:"faq.html",
+		content: "F. A. Questions",
+	},
+	{
+		type:"a",
+		url:"lore.html",
+		content:"Worlds"
+	},
+	{
+		type:"a",
+		url:"articles.html",
+		content:"Articles"
+	},
+	{
+		type:"p",
+		content:"External Links"
+	},
+	{
+		type:"a",
+		url:"https://github.com/CreamStarlight/",
+		content: "GitHub"
+	},
+	{
+		type:"a",
+		url:"https://forums.terraria.org/index.php?members/268730/",
+		content: "Terraria Forums"
+	},
+	{
+		type:"a",
+		url:"https://xkcd.com",
+		content:"xkcd comic"
+	}
+]
+
+function sidebarMaker(){
+	var insertion="";
+	sidebarTable.forEach(tab => {
+		var typ=tab.type;
+		var ins=tab.content;
+		switch(typ){
+			case "p":
+				insertion=insertion+"<p";
+				if(tab.prop){
+					insertion=insertion+" "+tab.prop;
+				}
+				if(tab.alt){
+					insertion=insertion+" title='"+tab.alt+"'"
+				}
+				insertion=insertion+">"+ins+"</p>";
+				break;
+			case "a":
+				if(window.location.href.includes(tab.url)){
+					insertion=insertion+"<a href='#'><strong>"+ins+"</strong></a>";
+				}else{
+					insertion=insertion+"<a href='"+tab.url+"'>"+ins+"</a>";
+				}
+				
+				break;
+		}
+	});
+	document.getElementById('sidebar').innerHTML=document.getElementById('sidebar').innerHTML+insertion;
+}
+
 //---//---//---//---//
 
 function __introduction__(){
@@ -321,4 +401,5 @@ if(startTime()==0){
 }
 
 __introduction__();
+sidebarMaker();
 
