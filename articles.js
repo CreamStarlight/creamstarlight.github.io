@@ -17,14 +17,6 @@
  */
 const articlesData = [
   {
-    id: 5,
-    title: "desultory signals",
-    excerpt: "",
-    date: "2026.10.18",
-    category: ["???"],
-    hidden: false
-  },
-  {
     id: 4,
     title: "College freshman be like",
     excerpt: "It's quite easy to manage if you don't have much to do.",
